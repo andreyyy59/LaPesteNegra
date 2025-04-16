@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Celdas.unity
+    guid: 8a4feb5cce4ed924e8a453858ffcbd19
+  - enabled: 1
+    path: Assets/Scenes/Pozo.unity
+    guid: b16f3a6b663b4894884708c1af7aebaf
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
