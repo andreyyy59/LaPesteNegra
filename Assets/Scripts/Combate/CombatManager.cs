@@ -1,74 +1,94 @@
+ï»¿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    public static CombatManager Instance;
-    public int playerHealth = 100;
-    public int enemyHealth = 100;
+    [SerializeField] private Fighter[] fighters;
+    private Queue<Fighter> turnQueue;
+    private bool isCombatActive;
+
+    private PlayerActionMenu playerActionMenu;
+
+    void Start()
+    {
+        LogPanel.Write("Battle Initiated.");
+        isCombatActive = true;
+
+        playerActionMenu = Object.FindAnyObjectByType<PlayerActionMenu>();
+        InitializeTurnQueue();
+
+        StartCoroutine(CombatLoop());
+    }
 
     void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
+        Debug.LogWarning($"ðŸŸ¡ CombatManager activo en: {gameObject.name}", this);
     }
 
-    public void PlayerAttack()
+    void InitializeTurnQueue()
     {
-        int damage = Random.Range(5, 15);
-        enemyHealth -= damage;
-        Debug.Log("El jugador ataca e inflige " + damage + " de daño.");
-
-        CombatUIManager uiManager = FindObjectOfType<CombatUIManager>();
-        if (uiManager != null)
-            uiManager.UpdateHealthBars();
-
-        CheckCombatState();
-
-        if (enemyHealth > 0)
+        turnQueue = new Queue<Fighter>();
+        foreach (var f in fighters)
         {
-            // Esperar un momento antes de que el enemigo ataque (para animaciones o efectos)
-            Invoke("EnemyTurn", 1.5f);
+            if (!turnQueue.Contains(f))
+                turnQueue.Enqueue(f);
+        }
+
+        PrintTurnQueue();
+    }
+
+    IEnumerator CombatLoop()
+    {
+        while (isCombatActive && turnQueue.Count > 0)
+        {
+            Fighter current = turnQueue.Dequeue();
+            Fighter opponent = GetOpponent(current);
+
+            LogPanel.Write($"{current.idName} tiene el turno.");
+            current.isTurnFinished = false;
+            current.InitTurn();
+
+            if (current is PlayerFighter)
+                playerActionMenu.StartPlayerTurn();
+            else
+                playerActionMenu.Hide();
+
+            yield return new WaitUntil(() => current.isTurnFinished);
+
+            if (!current.isAlive || !opponent.isAlive)
+            {
+                EndCombat();
+                yield break;
+            }
+
+            // ðŸ”’ Evitar duplicados en la cola
+            if (!turnQueue.Contains(opponent))
+                turnQueue.Enqueue(opponent);
+
+            PrintTurnQueue();
         }
     }
 
-    public void Defend()
+    Fighter GetOpponent(Fighter current)
     {
-        Debug.Log("El jugador se defiende...");
-    }
-
-    public void UseItem()
-    {
-        Debug.Log("El jugador usa un objeto...");
-    }
-
-    public void Huir()
-    {
-        Debug.Log("El jugador intenta huir... (Pendiente)");
-    }
-
-
-    public void EnemyTurn()
-    {
-        int damage = Random.Range(5, 15);
-        playerHealth -= damage;
-        Debug.Log("El enemigo ataca e inflige " + damage + " de daño.");
-
-        // Actualizar la UI de la barra de vida
-        CombatUIManager uiManager = FindObjectOfType<CombatUIManager>();
-        if (uiManager != null)
-            uiManager.UpdateHealthBars();
-
-        CheckCombatState();
-    }
-
-
-    void CheckCombatState()
-    {
-        if (enemyHealth <= 0)
+        foreach (var f in fighters)
         {
-            Debug.Log("¡El enemigo ha sido derrotado!");
+            if (f != current)
+                return f;
         }
+        return null;
+    }
+
+    void EndCombat()
+    {
+        isCombatActive = false;
+        LogPanel.Write("Â¡Combate finalizado!");
+    }
+
+    private void PrintTurnQueue()
+    {
+        Debug.Log("Cola actual de turnos: [ " + string.Join(" ", turnQueue.Select(f => f.idName)) + " ]");
     }
 }
