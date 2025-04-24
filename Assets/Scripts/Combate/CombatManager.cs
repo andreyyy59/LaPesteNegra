@@ -13,13 +13,21 @@ public class CombatManager : MonoBehaviour
 
     void Start()
     {
-        LogPanel.Write("Battle Initiated.");
-        isCombatActive = true;
+        StartCoroutine(StartupSequence());
+    }
 
+    private IEnumerator StartupSequence()
+    {
+        LogPanel.Write("Battle Initiated.");
+        yield return LogPanel.WaitForMessage();
+        yield return new WaitForSeconds(1.2f);
+
+        isCombatActive = true;
         playerActionMenu = Object.FindAnyObjectByType<PlayerActionMenu>();
         InitializeTurnQueue();
 
         StartCoroutine(CombatLoop());
+        Debug.Log("TurnQueue inicial (Start): [ " + string.Join(" ", turnQueue.Select(x => x.idName)) + " ]");
     }
 
     void Awake()
@@ -35,8 +43,6 @@ public class CombatManager : MonoBehaviour
             if (!turnQueue.Contains(f))
                 turnQueue.Enqueue(f);
         }
-
-        PrintTurnQueue();
     }
 
     IEnumerator CombatLoop()
@@ -45,27 +51,37 @@ public class CombatManager : MonoBehaviour
         {
             Fighter current = turnQueue.Dequeue();
             Fighter opponent = GetOpponent(current);
-
             LogPanel.Write($"{current.idName} tiene el turno.");
+            yield return LogPanel.WaitForMessage();
+            yield return new WaitForSeconds(1.2f);
+            
+
+            Debug.Log($"[Turno] {current.idName} (vida: {current.Stats.health})");
             current.isTurnFinished = false;
             current.InitTurn();
 
             if (current is PlayerFighter)
+            {
                 playerActionMenu.StartPlayerTurn();
+            }
             else
+            {
                 playerActionMenu.Hide();
+            }
 
             yield return new WaitUntil(() => current.isTurnFinished);
 
             if (!current.isAlive || !opponent.isAlive)
             {
-                EndCombat();
+                yield return EndCombat();
                 yield break;
             }
 
-            // 🔒 Evitar duplicados en la cola
+            // Cola básica sin turnos extra
             if (!turnQueue.Contains(opponent))
+            {
                 turnQueue.Enqueue(opponent);
+            }
 
             PrintTurnQueue();
         }
@@ -81,14 +97,24 @@ public class CombatManager : MonoBehaviour
         return null;
     }
 
-    void EndCombat()
+    private IEnumerator EndCombat()
     {
         isCombatActive = false;
         LogPanel.Write("¡Combate finalizado!");
+        yield return LogPanel.WaitForMessage();
+        yield return new WaitForSeconds(1.2f);
     }
 
     private void PrintTurnQueue()
     {
+        string contenido = "Cola actual de turnos: [ ";
+
+        foreach (var fighter in turnQueue)
+        {
+            contenido += fighter.idName + " ";
+        }
+
+        contenido += "]";
         Debug.Log("Cola actual de turnos: [ " + string.Join(" ", turnQueue.Select(f => f.idName)) + " ]");
     }
 }

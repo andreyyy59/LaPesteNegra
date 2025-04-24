@@ -799,6 +799,7 @@ MonoBehaviour:
   bodyTarget: 0
   isOffensive: 0
   attackType: 0
+  specialHitChance: 0.6
 --- !u!1 &384406624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1616,7 @@ MonoBehaviour:
   bodyTarget: 2
   isOffensive: 1
   attackType: 1
+  specialHitChance: 0.3
 --- !u!1 &619123776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,6 +1902,7 @@ MonoBehaviour:
   bodyTarget: 0
   isOffensive: 1
   attackType: 1
+  specialHitChance: 0.6
 --- !u!1 &689158879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,6 +2815,7 @@ MonoBehaviour:
   bodyTarget: 3
   isOffensive: 1
   attackType: 1
+  specialHitChance: 0.6
 --- !u!1 &1139320334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,6 +3366,7 @@ MonoBehaviour:
   bodyTarget: 1
   isOffensive: 1
   attackType: 1
+  specialHitChance: 0.2
 --- !u!1 &1339542264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,6 +3528,7 @@ MonoBehaviour:
   bodyTarget: 0
   isOffensive: 1
   attackType: 1
+  specialHitChance: 0.6
 --- !u!1 &1448682851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3805,6 +3811,7 @@ MonoBehaviour:
   bodyTarget: 0
   isOffensive: 0
   attackType: 1
+  specialHitChance: 0.6
 --- !u!1 &1612018137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,7 +4767,7 @@ MonoBehaviour:
   statusPanel: {fileID: 5145718853412608174}
   combatManager: {fileID: 1064103081}
   bodyStatus:
-    armCount: 0
+    armCount: 2
     hasHead: 1
     bleedingTurns: 0
   isTurnFinished: 0

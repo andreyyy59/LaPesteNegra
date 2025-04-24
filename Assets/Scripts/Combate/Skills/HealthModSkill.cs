@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public enum HealthModType
 {
@@ -31,15 +32,21 @@ public class HealthModSkill : SkillInteraction
     public bool isOffensive = false;
     public AttackType attackType = AttackType.PHYSICAL;
 
+    [Header("Probabilidades especiales")]
+    [Range(0f, 1f)] public float specialHitChance = 0.6f;
+
     private bool wasCrit = false;
 
     protected override void OnRun()
     {
-        wasCrit = false;
+        StartCoroutine(RunEffect());
+    }
 
+    private IEnumerator RunEffect()
+    {
+        wasCrit = false;
         float intended = GetModification();
 
-        // Penalización por brazos faltantes si es ataque físico ofensivo
         if (attackType == AttackType.PHYSICAL && isOffensive)
         {
             intended *= emitter.bodyStatus.GetDamageMultiplierForArms();
@@ -48,35 +55,64 @@ public class HealthModSkill : SkillInteraction
         var result = receiver.ModifyHealth(intended);
         int shown = Mathf.RoundToInt(Mathf.Abs(result.finalValue));
 
-        if (result.finalValue < 0)
+        if (!isSpecial)
         {
-            if (wasCrit)
+            if (result.finalValue < 0)
             {
-                LogPanel.Write($"¡Golpe crítico! {shown} de daño a {receiver.idName}.");
+                if (wasCrit)
+                    LogPanel.Write($"¡Golpe crítico! {shown} de daño a {receiver.idName}.");
+                else
+                    LogPanel.Write($"{emitter.idName} infligió {shown} de daño a {receiver.idName}.");
+
+                yield return LogPanel.WaitForMessage();
+                yield return new WaitForSeconds(1.2f);
+
+                if (result.blocked)
+                {
+                    LogPanel.Write($"{receiver.idName} bloqueó parcialmente el ataque.");
+                    yield return LogPanel.WaitForMessage();
+                    yield return new WaitForSeconds(1.2f);
+                }
+            }
+            else if (Mathf.Approximately(result.finalValue, 0f))
+            {
+                LogPanel.Write($"{emitter.idName} intentó atacar, pero no tiene fuerza suficiente para causar daño.");
+                yield return LogPanel.WaitForMessage();
+                yield return new WaitForSeconds(1.2f);
             }
             else
             {
-                LogPanel.Write($"{emitter.idName} infligió {shown} de daño a {receiver.idName}.");
-            }
-
-            if (result.blocked)
-            {
-                LogPanel.Write($"{receiver.idName} bloqueó parcialmente el ataque.");
-            }
-
-            if (isSpecial)
-            {
-                ApplyBodyEffect();
+                LogPanel.Write($"{emitter.idName} se curó {shown} pts. de salud.");
+                yield return LogPanel.WaitForMessage();
+                yield return new WaitForSeconds(1.2f);
             }
         }
-    else if (Mathf.Approximately(result.finalValue, 0f))
-    {
-        LogPanel.Write($"{emitter.idName} intentó atacar, pero no tiene fuerza suficiente para causar daño.");
-    }
-    else
-    {
-        LogPanel.Write($"{emitter.idName} se curó {shown} pts. de salud.");
-    }
+
+        if (isSpecial && Random.value < specialHitChance)
+        {
+            yield return ApplyBodyEffect();
+        }
+        else if (isSpecial)
+        {
+            Debug.Log("Falló el efecto especial, entrando en mensajes personalizados.");
+            switch (bodyTarget)
+            {
+                case BodyTargetZone.HEAD:
+                    LogPanel.Write($"{emitter.idName} intentó un golpe letal a la cabeza, pero solo provocó un rasguño.");
+                    break;
+                case BodyTargetZone.ARMS:
+                    LogPanel.Write($"{emitter.idName} intentó cercenar un brazo, pero solo provocó un rasguño.");
+                    break;
+                case BodyTargetZone.TORSO:
+                    LogPanel.Write($"{emitter.idName} intentó provocar una hemorragia, pero solo provocó un rasguño.");
+                    break;
+                default:
+                    LogPanel.Write($"{emitter.idName} intentó aplicar un efecto especial pero falló.");
+                    break;
+            }
+            yield return LogPanel.WaitForMessage();
+            yield return new WaitForSeconds(1.2f);
+        }
     }
 
     private float GetModification()
@@ -88,17 +124,14 @@ public class HealthModSkill : SkillInteraction
             case HealthModType.FIXED:
                 rawValue = amount;
                 break;
-
             case HealthModType.PERCENTAGE:
                 Stats rStats = receiver.GetCurrentStats();
                 rawValue = rStats.maxHealth * amount;
                 break;
-
             case HealthModType.STAT_BASED:
                 Stats eStats = emitter.GetCurrentStats();
                 rawValue = eStats.attack * amount;
                 break;
-
             default:
                 throw new System.InvalidOperationException("Tipo de modificación no válido.");
         }
@@ -118,38 +151,29 @@ public class HealthModSkill : SkillInteraction
         return value;
     }
 
-    private void ApplyBodyEffect()
+    private IEnumerator ApplyBodyEffect()
     {
         switch (bodyTarget)
         {
             case BodyTargetZone.HEAD:
-                if (Random.value < 0.6f)
-                {
-                    receiver.bodyStatus.hasHead = false;
-                    receiver.Stats.health = 0;
-                    receiver.statusPanel.SetHealth(0, receiver.Stats.maxHealth);
-                    LogPanel.Write($"{receiver.idName} fue decapitado.");
-                }
-                else
-                {
-                    LogPanel.Write($"{emitter.idName} falló el intento de golpe letal a la cabeza.");
-                }
+                receiver.bodyStatus.hasHead = false;
+                receiver.Stats.health = 0;
+                receiver.statusPanel.SetHealth(0, receiver.Stats.maxHealth);
+                LogPanel.Write($"{receiver.idName} fue decapitado.");
                 break;
-
             case BodyTargetZone.ARMS:
                 receiver.bodyStatus.LoseArm();
                 LogPanel.Write($"{receiver.idName} perdió un brazo.");
                 break;
-
             case BodyTargetZone.TORSO:
                 receiver.bodyStatus.ApplyBleeding(3);
                 LogPanel.Write($"{receiver.idName} comenzó a sangrar durante 3 turnos.");
                 break;
-
-            case BodyTargetZone.NONE:
             default:
                 Debug.LogWarning("Zona del cuerpo no especificada para efecto especial.");
                 break;
         }
+        yield return LogPanel.WaitForMessage();
+        yield return new WaitForSeconds(1.2f);
     }
 }
