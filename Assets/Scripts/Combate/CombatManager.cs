@@ -18,7 +18,7 @@ public class CombatManager : MonoBehaviour
 
     private IEnumerator StartupSequence()
     {
-        LogPanel.Write("Battle Initiated.");
+        LogPanel.Write("Iniciando Batalla.");
         yield return LogPanel.WaitForMessage();
         yield return new WaitForSeconds(1.2f);
 
