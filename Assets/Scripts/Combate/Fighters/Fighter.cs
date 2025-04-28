@@ -97,8 +97,8 @@ public abstract class Fighter : MonoBehaviour
         if (bodyStatus.IsBleeding)
         {
             yield return new WaitForSeconds(2.5f);
-            ModifyHealth(-5);
-            LogPanel.Write($"{idName} sufre 5 de daño por sangrado.");
+            ModifyHealth(-50);
+            LogPanel.Write($"{idName} sufre 50 de daño por sangrado.");
         }
 
         bodyStatus.TickTurn();

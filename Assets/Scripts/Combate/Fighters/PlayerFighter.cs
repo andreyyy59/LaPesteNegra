@@ -2,10 +2,12 @@
 
 public class PlayerFighter : Fighter
 {
+    [SerializeField] private int Damage;
+    [SerializeField] private int Health;
     void Awake()
     {
         // Establece los stats base del jugador
-        this.stats = new Stats(1000, 10);
+        this.stats = new Stats(Health, Damage);
     }
 
     public override void InitTurn()

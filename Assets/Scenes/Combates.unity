@@ -916,8 +916,8 @@ MonoBehaviour:
   requiredArms: 0
   requiredLegs: 0
   requiresHead: 0
-  amount: 20
-  modType: 1
+  amount: 2
+  modType: 0
   bodyTarget: 0
   isOffensive: 0
   attackType: 0
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   bodyTarget: 2
   isOffensive: 1
   attackType: 1
-  specialHitChance: 0.3
+  specialHitChance: 0.2
 --- !u!1 &619123776
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,7 +2509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &872715645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2831,7 +2831,7 @@ MonoBehaviour:
   bodyTarget: 3
   isOffensive: 1
   attackType: 1
-  specialHitChance: 0.6
+  specialHitChance: 0.1
 --- !u!1 &1139320334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   bodyTarget: 1
   isOffensive: 1
   attackType: 1
-  specialHitChance: 0.2
+  specialHitChance: 0.05
 --- !u!1 &1339542264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,6 +3444,8 @@ MonoBehaviour:
   isTurnFinished: 0
   hasGuaranteedCrit: 0
   hasDefenseBuff: 0
+  Damage: 250
+  Health: 700
 --- !u!114 &1339542267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3838,8 +3840,8 @@ MonoBehaviour:
   requiredArms: 0
   requiredLegs: 0
   requiresHead: 0
-  amount: 20
-  modType: 1
+  amount: 0.5
+  modType: 0
   bodyTarget: 0
   isOffensive: 0
   attackType: 1
@@ -4820,6 +4822,8 @@ MonoBehaviour:
   isTurnFinished: 0
   hasGuaranteedCrit: 0
   hasDefenseBuff: 0
+  Damage: 100
+  Health: 1000
 --- !u!114 &1897700864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5436,7 +5440,7 @@ MonoBehaviour:
   animationDuration: 1
   selfInflicted: 1
   effectPrfb: {fileID: 0}
-  enemySkillType: 0
+  enemySkillType: 1
   isSpecial: 0
   requiredArms: 0
   requiredLegs: 0
