@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pozo.unity
     guid: b16f3a6b663b4894884708c1af7aebaf
+  - enabled: 1
+    path: Assets/Scenes/Combates.unity
+    guid: 660ac1beea8159040875ed6ca99e27b9
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

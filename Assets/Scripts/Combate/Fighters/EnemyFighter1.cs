@@ -7,10 +7,12 @@ public class EnemyFighter : Fighter
     private List<SkillInteraction> attackSkills = new();
     private List<SkillInteraction> buffSkills = new();
     private List<SkillInteraction> healSkills = new();
+    [SerializeField] private int Damage;
+    [SerializeField] private int Health;
 
     void Awake()
     {
-        this.stats = new Stats(500, 40);
+        this.stats = new Stats(Health, Damage);
     }
 
     protected override void Start()

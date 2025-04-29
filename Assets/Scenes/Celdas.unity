@@ -272,9 +272,10 @@ GameObject:
   - component: {fileID: 922753052}
   - component: {fileID: 922753055}
   - component: {fileID: 922753054}
+  - component: {fileID: 922753056}
   m_Layer: 0
   m_Name: Rata
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,7 +379,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -412,6 +413,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &922753056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922753051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e385218db3116514dab00802db34fe13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 8
+  distanciaVision: 10
 --- !u!1 &1053056761
 GameObject:
   m_ObjectHideFlags: 0
@@ -17738,6 +17753,7 @@ GameObject:
   - component: {fileID: 2045322414}
   - component: {fileID: 2045322415}
   - component: {fileID: 2045322416}
+  - component: {fileID: 2045322417}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -17927,6 +17943,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615b410a622e4f343869f2c973f360c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2045322417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045322408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4669f88fdb9527c49bdd39bc50386f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreEscena: Combates
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
