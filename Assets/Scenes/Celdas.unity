@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 922753055}
   - component: {fileID: 922753054}
   - component: {fileID: 922753056}
+  - component: {fileID: 922753057}
   m_Layer: 0
   m_Name: Rata
   m_TagString: Enemigo
@@ -409,12 +410,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 187080cde6a11924192be16d11a50b3a, type: 3}
+  m_Sprite: {fileID: 1941929201, guid: ab9e5827345800a448967a2da2af47e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 4.72, y: 2.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -429,8 +430,8 @@ Transform:
   m_GameObject: {fileID: 922753051}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99999547, z: -0, w: -0.0030129773}
-  m_LocalPosition: {x: 7.044, y: -6.5219, z: 0}
-  m_LocalScale: {x: -0.40213034, y: 0.3927672, z: 0.43958277}
+  m_LocalPosition: {x: 6.5752, y: -7.0857, z: 0}
+  m_LocalScale: {x: -0.6900857, y: 0.6740179, z: 0.7543569}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,8 +470,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 16.000002, y: 16.000002}
+  m_Offset: {x: 0.012270344, y: 0.113051616}
+  m_Size: {x: 5.7185125, y: 5.854729}
   m_Direction: 0
 --- !u!50 &922753055
 Rigidbody2D:
@@ -511,8 +512,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e385218db3116514dab00802db34fe13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 12
-  distanciaVision: 10
+  velocidad: 11
+  distanciaVision: 9
+--- !u!95 &922753057
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922753051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a88e99ce8f2696468a4dfc51009e2f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1053056761
 GameObject:
   m_ObjectHideFlags: 0
