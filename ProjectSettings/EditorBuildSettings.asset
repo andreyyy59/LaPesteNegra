@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Combates.unity
     guid: 660ac1beea8159040875ed6ca99e27b9
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: aad5911749073e84e9d77c94de6bf8c5
+  - enabled: 1
+    path: Assets/Scenes/Opciones.unity
+    guid: ad3feed9862fc424eafefd7a740865fd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
