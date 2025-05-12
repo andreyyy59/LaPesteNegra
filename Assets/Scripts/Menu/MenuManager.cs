@@ -20,4 +20,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("El juego se cerró."); // Solo visible en editor
     }
+    public void ToggleMusic()
+    {
+        GetComponent<AudioSource>().mute = !GetComponent<AudioSource>().mute;
+    }
 }
+    

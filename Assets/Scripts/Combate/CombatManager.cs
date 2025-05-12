@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -103,6 +104,7 @@ public class CombatManager : MonoBehaviour
         LogPanel.Write("¡Combate finalizado!");
         yield return LogPanel.WaitForMessage();
         yield return new WaitForSeconds(1.2f);
+        SceneManager.LoadScene("Celdas 1"); 
     }
 
     private void PrintTurnQueue()

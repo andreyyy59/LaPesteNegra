@@ -7,6 +7,8 @@ TagManager:
   - 'TileTrigger '
   - Rata
   - Enemigo
+  - Llave
+  - Puerta
   layers:
   - Default
   - TransparentFX

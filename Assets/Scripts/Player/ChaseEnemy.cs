@@ -6,6 +6,10 @@ public class EnemigoPerseguirJugador : MonoBehaviour
     public float velocidad = 2f;
     public float distanciaVision = 5f;
 
+    private AudioSource audioSource;
+    public float stepDelay = 0.7f; // Tiempo entre sonidos
+    private float stepTimer;
+
     void Start()
     {
         GameObject objJugador = GameObject.Find("player");
@@ -17,6 +21,9 @@ public class EnemigoPerseguirJugador : MonoBehaviour
         {
             Debug.LogWarning("No se encontró un GameObject llamado 'player'");
         }
+
+        audioSource = GetComponent<AudioSource>();
+        stepTimer = stepDelay;
     }
 
     void Update()
@@ -29,7 +36,20 @@ public class EnemigoPerseguirJugador : MonoBehaviour
         {
             Vector2 direccion = (jugador.position - transform.position).normalized;
             transform.position += (Vector3)(direccion * velocidad * Time.deltaTime);
+
+            // Sonido por pasos o gruñidos cada cierto tiempo
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0f)
+            {
+                audioSource.PlayOneShot(audioSource.clip);
+                stepTimer = stepDelay;
+            }
+        }
+        else
+        {
+            stepTimer = 0f; // Reiniciar el temporizador si no ve al jugador
         }
     }
 }
+
 
