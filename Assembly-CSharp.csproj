@@ -66,7 +66,6 @@
     <Compile Include="Assets\Scripts\Combate\Fighters\Stats.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Combate\Skills\UI_Skills\ItemButton.cs" />
-    <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="Assets\Scripts\Combate\Fighters\EnemyFighter1.cs" />
     <Compile Include="Assets\Scripts\Combate\Skills\UI_Skills\MenuInteraction.cs" />
     <Compile Include="Assets\Scripts\Player\enemigo.cs" />
-    <Compile Include="Assets\Scripts\Player\Tp.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -88,7 +86,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\Combate\Fighters\Fighter.cs" />
     <Compile Include="Assets\Scripts\Combate\Skills\HealthModSkill.cs" />
+    <Compile Include="Assets\Scripts\Menu\Music.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\Scripts\Player\Puerta.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Combate\UI\StatusPanel.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
@@ -119,8 +119,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\Menu\MusicToogle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInventario.cs" />
     <Compile Include="Assets\Imports\HedgehogArts_GPUMode7\Scripts\Mode7.cs" />
     <Compile Include="Assets\Scripts\Combate\Skills\Skill\RegenerationSkill.cs" />
   </ItemGroup>

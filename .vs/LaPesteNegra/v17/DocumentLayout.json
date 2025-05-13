@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFA8DD67-44C5-53B2-0F60-27C034F0F3F4}|Assembly-CSharp.csproj|c:\\users\\gamedevlab\\documents\\github\\lapestenegra\\assets\\scripts\\menu\\menumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFA8DD67-44C5-53B2-0F60-27C034F0F3F4}|Assembly-CSharp.csproj|c:\\users\\gamedevlab\\documents\\github\\lapestenegra\\assets\\scripts\\player\\playerinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA8DD67-44C5-53B2-0F60-27C034F0F3F4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Player\\Llave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player\\Llave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA8DD67-44C5-53B2-0F60-27C034F0F3F4}|Assembly-CSharp.csproj|C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\assets\\scripts\\player\\puerta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA8DD67-44C5-53B2-0F60-27C034F0F3F4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\puerta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA8DD67-44C5-53B2-0F60-27C034F0F3F4}|Assembly-CSharp.csproj|C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\assets\\scripts\\menu\\menumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFA8DD67-44C5-53B2-0F60-27C034F0F3F4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\menu\\menumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -39,6 +51,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerInventario.cs",
+              "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Player\\PlayerInventario.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerInventario.cs",
+              "ToolTip": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Player\\PlayerInventario.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerInventario.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T14:56:07.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Puerta.cs",
+              "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Player\\Puerta.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Puerta.cs",
+              "ToolTip": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Player\\Puerta.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Puerta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T13:41:20.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Llave.cs",
+              "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Player\\Llave.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Llave.cs",
+              "ToolTip": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Player\\Llave.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Llave.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T13:35:00.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MenuManager.cs",
               "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Menu\\MenuManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Menu\\MenuManager.cs",
@@ -46,12 +94,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Menu\\MenuManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T13:36:09.495Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-08T13:36:09.495Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Fighter.cs",
               "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Combate\\Fighters\\Fighter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combate\\Fighters\\Fighter.cs",
@@ -63,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "SkillInteraction.cs",
               "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Combate\\Skills\\SkillInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combate\\Skills\\SkillInteraction.cs",
@@ -75,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "BodyStatus.cs",
               "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Combate\\Skills\\BodyStatus.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combate\\Skills\\BodyStatus.cs",
@@ -87,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "EnemyFighter1.cs",
               "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Combate\\Fighters\\EnemyFighter1.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combate\\Fighters\\EnemyFighter1.cs",
@@ -99,7 +146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "PlayerFighter.cs",
               "DocumentMoniker": "C:\\Users\\GameDevLab\\Documents\\GitHub\\LaPesteNegra\\Assets\\Scripts\\Combate\\Fighters\\PlayerFighter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combate\\Fighters\\PlayerFighter.cs",

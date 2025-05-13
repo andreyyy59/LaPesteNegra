@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Puerta : MonoBehaviour
 {
-    public GameObject mensajeSinLlave; // Texto o UI de advertencia
+    public GameObject mensajeSinLlave;
+    public string nombreEscenaDestino; // Asignar en el Inspector
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,12 +14,11 @@ public class Puerta : MonoBehaviour
 
             if (inventario != null && inventario.tieneLlave)
             {
-                Debug.Log("Puerta abierta");
-                Destroy(gameObject); // Destruye la puerta
+                Debug.Log("Puerta abierta. Cargando escena...");
+                SceneManager.LoadScene("SalaMedicos"); // Cambiar de escena
             }
             else
             {
-                Debug.Log("Necesitas una llave");
                 if (mensajeSinLlave != null)
                     mensajeSinLlave.SetActive(true);
             }
