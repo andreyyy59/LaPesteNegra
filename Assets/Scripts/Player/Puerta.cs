@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class Puerta : MonoBehaviour
 {
-    public GameObject mensajeSinLlave;
-    public string nombreEscenaDestino; // Asignar en el Inspector
+    public GameObject mensajeSinLlave; // ? Aquí arrastras el objeto de texto
+    public string nombreEscenaDestino;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,13 +14,12 @@ public class Puerta : MonoBehaviour
 
             if (inventario != null && inventario.tieneLlave)
             {
-                Debug.Log("Puerta abierta. Cargando escena...");
-                SceneManager.LoadScene("SalaMedicos"); // Cambiar de escena
+                SceneManager.LoadScene(nombreEscenaDestino);
             }
             else
             {
                 if (mensajeSinLlave != null)
-                    mensajeSinLlave.SetActive(true);
+                    mensajeSinLlave.SetActive(true); // Muestra el mensaje
             }
         }
     }
@@ -29,7 +28,7 @@ public class Puerta : MonoBehaviour
     {
         if (other.CompareTag("Player") && mensajeSinLlave != null)
         {
-            mensajeSinLlave.SetActive(false);
+            mensajeSinLlave.SetActive(false); // Oculta el mensaje
         }
     }
 }

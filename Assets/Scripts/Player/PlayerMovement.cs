@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
 
     private AudioSource audioSource;
-    public float stepDelay = 0.5f; // Tiempo entre pasos
+    public float stepDelay = 0.5f;
     private float stepTimer;
+
+    public bool tieneLlave = false; // ? Esta es la variable que usará la puerta/llave
 
     void Start()
     {
@@ -29,20 +31,22 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("x", movement.x);
         anim.SetFloat("y", movement.y);
 
-        // Sistema de pasos por tiempo
+        // Reproduce sonido de pasos con retardo
         if (movement.magnitude > 0)
         {
             stepTimer -= Time.fixedDeltaTime;
 
             if (stepTimer <= 0f)
             {
-                audioSource.PlayOneShot(audioSource.clip);
+                if (audioSource != null && audioSource.clip != null)
+                    audioSource.PlayOneShot(audioSource.clip);
+
                 stepTimer = stepDelay;
             }
         }
         else
         {
-            stepTimer = 0f; // Reinicia el temporizador si se detiene
+            stepTimer = stepDelay; // Reinicia al valor original, no a cero
         }
     }
 }
